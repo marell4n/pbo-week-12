@@ -1,6 +1,6 @@
-package component.peripheral;
+package pcbuilder.component.peripheral;
 
-import component.BaseComponent;
+import pcbuilder.component.BaseComponent;
 
 public class Monitor extends BaseComponent {
     public Monitor(String name, double price) {

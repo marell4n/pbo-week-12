@@ -1,6 +1,6 @@
-package component.peripheral;
+package pcbuilder.component.peripheral;
 
-import component.BaseComponent;
+import pcbuilder.component.BaseComponent;
 
 public class Keyboard extends BaseComponent {
     public Keyboard(String name, double price) {

@@ -1,4 +1,4 @@
-package component;
+package pcbuilder.component;
 public abstract class BaseComponent {
     protected String name;
     protected double price;

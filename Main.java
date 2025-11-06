@@ -1,9 +1,8 @@
 import pcbuilder.PC;
-import component.core.*;
-import component.storage.*;
-import component.peripheral.*;
-import component.BaseComponent; 
-
+import pcbuilder.component.core.*;
+import pcbuilder.component.storage.*;
+import pcbuilder.component.peripheral.*;
+import pcbuilder.component.BaseComponent;
 public class Main {
     
     public static void main(String[] args) {

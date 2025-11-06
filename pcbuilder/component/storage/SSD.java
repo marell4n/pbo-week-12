@@ -1,6 +1,6 @@
-package component.storage;
+package pcbuilder.component.storage;
 
-import component.BaseComponent;
+import pcbuilder.component.BaseComponent;
 
 public class SSD extends BaseComponent {
     public SSD(String name, double price) {

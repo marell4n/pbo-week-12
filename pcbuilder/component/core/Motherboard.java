@@ -1,6 +1,6 @@
-package component.core;
+package pcbuilder.component.core;
 
-import component.BaseComponent;
+import pcbuilder.component.BaseComponent;
 
 public class Motherboard extends BaseComponent {
     public Motherboard(String name, double price) {

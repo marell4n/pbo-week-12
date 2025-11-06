@@ -1,6 +1,6 @@
-package component.peripheral;
+package pcbuilder.component.peripheral;
 
-import component.BaseComponent;
+import pcbuilder.component.BaseComponent;
 
 public class Mouse extends BaseComponent {
     public Mouse(String name, double price) {

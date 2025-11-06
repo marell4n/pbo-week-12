@@ -1,6 +1,6 @@
-package component.storage;
+package pcbuilder.component.storage;
 
-import component.BaseComponent;
+import pcbuilder.component.BaseComponent;
 
 public class Flashdisk extends BaseComponent {
     public Flashdisk(String name, double price) {

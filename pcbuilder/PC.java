@@ -1,9 +1,9 @@
 package pcbuilder;
 
-import component.core.*;
-import component.peripheral.*;
-import component.storage.*;
-import component.BaseComponent;
+import pcbuilder.component.core.*;
+import pcbuilder.component.peripheral.*;
+import pcbuilder.component.storage.*;
+import pcbuilder.component.BaseComponent;
 import java.util.*;
 
 public class PC {
