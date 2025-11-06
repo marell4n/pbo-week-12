@@ -3,44 +3,49 @@ import pcbuilder.component.core.*;
 import pcbuilder.component.storage.*;
 import pcbuilder.component.peripheral.*;
 import pcbuilder.component.BaseComponent;
+
+// Import untuk Misi 2
+import pcbuilder.reporting.PCReportGenerator;
+import pcbuilder.reporting.Customer;
+import pcbuilder.reporting.SalesReport;
+
+// Import List
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     
     public static void main(String[] args) {
         System.out.println("Selamat datang di Vortex PC Solutions!");
-        System.out.println("Merakit PC baru...");
 
-        // 1. Siapkan Komponen Inti (Wajib)
+        // --- Setup untuk Misi 1 (Disesuaikan untuk Misi 2) ---
         CPU cpu = new CPU("Intel Core i9-13900K", 5000000);
         Motherboard mobo = new Motherboard("ASUS ROG STRIX Z790", 2500000);
-        RAM ram = new RAM("Corsair Vengeance 32GB", 1200000);
+        
+        // Buat List RAM sesuai perubahan di PC.java
+        List<RAM> ramList = new ArrayList<>();
+        ramList.add(new RAM("Corsair Vengeance 16GB", 800000));
+        ramList.add(new RAM("Corsair Vengeance 16GB", 800000));
 
-        // 2. Rakit PC (Memasukkan komponen inti via Composition)
-        PC myGamingPC = new PC(cpu, mobo, ram);
+        // Rakit PC dengan List RAM
+        PC myGamingPC = new PC(cpu, mobo, ramList);
 
-        // 3. Tambah Komponen Storage (Minimal 1)
-        // Ini valid, karena SSD "is-a" BaseComponent
         myGamingPC.addStorage(new SSD("Samsung 980 Pro 1TB", 1500000));
-
-        // 4. Tambah Komponen Peripheral (Opsional)
-        // Ini valid, karena Keyboard "is-a" BaseComponent
         myGamingPC.addPeripheral(new Keyboard("Logitech G Pro X", 750000));
         myGamingPC.addPeripheral(new Mouse("Razer DeathAdder V3", 450000));
-        myGamingPC.addPeripheral(new Monitor("LG UltraGear 27\"", 3000000));
 
-        // 5. Tampilkan Konfigurasi
-        myGamingPC.printConfiguration();
-
-        // 6. Hitung Total Harga
-        double total = myGamingPC.calculateTotalPrice();
-        System.out.printf("Total Harga PC Rakitan Anda: Rp %,.2f\n", total);
+        // --- DEMO MISI 2: TAHAP 1 ---
+        System.out.println("\n======= DEMO MISI 2 - TAHAP 1 (PC Report) =======");
+        PCReportGenerator pcReporter = new PCReportGenerator();
+        // Panggilan ini sekarang mendelegasikan ke pc.generateReport()
+        pcReporter.generateReport(myGamingPC);
         
-        // --- Peringatan Desain (Seperti yang dibahas sebelumnya) ---
-        // Desain ini tidak bisa mencegah hal berikut:
-        System.out.println("\n--- Peringatan Desain ---");
-        System.out.println("Menambahkan Mouse ke slot Storage...");
-        myGamingPC.addStorage(new Mouse("Mouse di Slot SSD?!", 100000));
+        // --- DEMO MISI 2: TAHAP 2 ---
+        System.out.println("\n======= DEMO MISI 2 - TAHAP 2 (Customer Report) =======");
+        Customer customer = new Customer("Budi", "budi@email.com", "Gold");
+        SalesReport salesReport = new SalesReport();
         
-        // Mouse akan tercetak di bawah kategori STORAGE
-        myGamingPC.printConfiguration();
+        // Panggilan ini sekarang mendelegasikan ke customer.printCustomerDetails()
+        salesReport.printCustomerDetails(customer);
     }
 }
