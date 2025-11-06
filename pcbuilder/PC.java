@@ -10,8 +10,8 @@ import java.util.*;
 public class PC {
 
     // 1. Relasi Composition (Wajib ada)
-    private final CPU core_cpu;
-    private final Motherboard core_motherboard;
+    private final CPU cpu;
+    private final Motherboard motherboard;
     // Diubah untuk Misi 2
     private final List<RAM> ramSticks;
 
@@ -21,8 +21,8 @@ public class PC {
 
     // Constructor diubah untuk Misi 2
     public PC(CPU cpu, Motherboard motherboard, List<RAM> ram) {
-        this.core_cpu = cpu;
-        this.core_motherboard = motherboard;
+        this.cpu = cpu;
+        this.motherboard = motherboard;
         this.ramSticks = ram;
         
         this.storageDevices = new ArrayList<>();
@@ -31,11 +31,11 @@ public class PC {
 
     // --- Getters untuk Misi 2 ---
     public CPU getCPU() {
-        return this.core_cpu;
+        return this.cpu;
     }
     
     public Motherboard getMotherboard() {
-        return this.core_motherboard;
+        return this.motherboard;
     }
     
     public List<RAM> getRamSticks() {
@@ -62,8 +62,8 @@ public class PC {
 
     public double calculateTotalPrice() {
         double total = 0;
-        total += this.core_cpu.getPrice();
-        total += this.core_motherboard.getPrice();
+        total += this.cpu.getPrice();
+        total += this.motherboard.getPrice();
         
         for(RAM ram : ramSticks) {
             total += ram.getPrice();
@@ -80,8 +80,8 @@ public class PC {
     public void printConfiguration() {
         System.out.println("--- Konfigurasi PC Anda ---");
         System.out.println("CORE:");
-        System.out.printf("  - CPU: %s (Rp %,.0f)\n", core_cpu.getName(), core_cpu.getPrice());
-        System.out.printf("  - Motherboard: %s (Rp %,.0f)\n", core_motherboard.getName(), core_motherboard.getPrice());
+        System.out.printf("  - CPU: %s (Rp %,.0f)\n", cpu.getName(), cpu.getPrice());
+        System.out.printf("  - Motherboard: %s (Rp %,.0f)\n", motherboard.getName(), motherboard.getPrice());
         System.out.println("  - RAM:");
         for(RAM ram : ramSticks) {
             System.out.printf("    - %s (Rp %,.0f)\n", ram.getName(), ram.getPrice());
