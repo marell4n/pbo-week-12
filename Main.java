@@ -9,9 +9,11 @@ import pcbuilder.reporting.PCReportGenerator;
 import pcbuilder.reporting.Customer;
 import pcbuilder.reporting.SalesReport;
 
+import java.text.NumberFormat;
 // Import List
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Main {
     
@@ -34,6 +36,7 @@ public class Main {
         myGamingPC.addPeripheral(new Keyboard("Logitech G Pro X", 750000));
         myGamingPC.addPeripheral(new Mouse("Razer DeathAdder V3", 450000));
 
+        /*
         // --- DEMO MISI 2: TAHAP 1 ---
         System.out.println("\n======= DEMO MISI 2 - TAHAP 1 (PC Report) =======");
         PCReportGenerator pcReporter = new PCReportGenerator();
@@ -47,5 +50,42 @@ public class Main {
         
         // Panggilan ini sekarang mendelegasikan ke customer.printCustomerDetails()
         salesReport.printCustomerDetails(customer);
+         */
+
+         // --- 2. Finalisasi & Demo (Showcase) ---
+        
+        // Memanggil method refaktor (Misi 2)
+        double finalPrice = myGamingPC.calculateTotalPrice();
+
+        // Format output (Sesuai permintaan Showcase)
+        Locale idLocale = Locale.of("id", "ID");
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(idLocale);
+        currencyFormatter.setMaximumFractionDigits(0); // Hapus desimal
+
+        System.out.println();
+        System.out.println("--- PC Build by Team \"Alpha\" ---");
+        System.out.println();
+        System.out.println("CPU: " + myGamingPC.getCPU().getName());
+        System.out.println("Motherboard: " + myGamingPC.getMotherboard().getName());
+        
+        // Format RAM
+        System.out.println("RAM: " + myGamingPC.getRamSticks().size() + "x " + myGamingPC.getRamSticks().get(0).getName());
+        
+        // Format Storage (Loop untuk semua storage)
+        for (BaseComponent s : myGamingPC.getStorageDevices()) {
+             System.out.println("Storage: " + s.getName());
+        }
+
+        // Format Peripheral (Loop untuk semua peripheral)
+        for (BaseComponent p : myGamingPC.getPeripheralDevices()) {
+             System.out.println("Peripheral: " + p.getName());
+        }
+
+        System.out.println();
+        System.out.println("---------------------------------");
+        System.out.println();
+        System.out.println("Final Price: " + currencyFormatter.format(finalPrice));
+        System.out.println();
+        System.out.println("--- Build Successful! ---");
     }
 }

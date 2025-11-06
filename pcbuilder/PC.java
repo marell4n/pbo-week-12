@@ -51,6 +51,15 @@ public class PC {
         this.peripheralDevices.add(peripheral);
     }
 
+    // [BARU] Getter untuk Misi 3 Showcase
+    public List<BaseComponent> getStorageDevices() {
+        return this.storageDevices;
+    }
+
+    public List<BaseComponent> getPeripheralDevices() {
+        return this.peripheralDevices;
+    }
+
     public double calculateTotalPrice() {
         double total = 0;
         total += this.core_cpu.getPrice();
